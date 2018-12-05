@@ -122,7 +122,7 @@ install_and_cache_deps() {
   else
     info "Install npm deps"
     npm run install
-    //install_npm_deps
+#    install_npm_deps
   fi
 
   info "Copy node_modules"
