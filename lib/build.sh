@@ -128,7 +128,7 @@ install_and_cache_deps() {
   echo $(cd $(dirname $0) && pwd)
   ls -al
 
-  cp -r node_modules $cache_dir
+  cp -r $assets_dir/node_modules $cache_dir
   PATH=$assets_dir/node_modules/.bin:$PATH
   info "Exit Installing"
   install_bower_deps
