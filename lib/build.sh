@@ -114,21 +114,22 @@ install_and_cache_deps() {
   if [ -d $cache_dir/node_modules ]; then
     info "mkdir node modules"
     mkdir -p node_modules
-    cp -r $cache_dir/node_modules/* node_modules/
+    cp -r $cache_dir/node_modules/* assets/node_modules/
   fi
 
   if [ -f "$assets_dir/yarn.lock" ]; then
     install_yarn_deps
   else
     info "Install npm deps"
-    install_npm_deps
+    npm run install
+    //install_npm_deps
   fi
 
   info "Copy node_modules"
   echo $(cd $(dirname $0) && pwd)
   ls -al
 
-  cp -r $assets_dir/node_modules $cache_dir
+  cp -r assets/node_modules $cache_dir
   PATH=$assets_dir/node_modules/.bin:$PATH
   info "Exit Installing"
   install_bower_deps
