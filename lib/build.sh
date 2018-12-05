@@ -112,6 +112,7 @@ install_and_cache_deps() {
   info "Installing and caching node modules"
   cd $assets_dir
   if [ -d $cache_dir/node_modules ]; then
+    info "mkdir node modules"
     mkdir -p node_modules
     cp -r $cache_dir/node_modules/* node_modules/
   fi
@@ -124,6 +125,9 @@ install_and_cache_deps() {
   fi
 
   info "Copy node_modules"
+  echo $(cd $(dirname $0) && pwd)
+  ls -al
+
   cp -r node_modules $cache_dir
   PATH=$assets_dir/node_modules/.bin:$PATH
   info "Exit Installing"
